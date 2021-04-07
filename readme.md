@@ -6,8 +6,8 @@ composer create-project symfony/skeleton projectName
 
 #### Packages 
 
-composer require symfony/orm-pack
-composer require symfony/maker-bundle --dev
+⋅⋅⋅composer require symfony/orm-pack⋅⋅
+⋅⋅⋅composer require symfony/maker-bundle --dev⋅⋅
 
 #### Entities & Migration
 
