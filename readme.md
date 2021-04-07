@@ -9,6 +9,7 @@ composer create-project symfony/skeleton projectName
 ```
 composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
+composer require api
 ```
 
 #### Entities & Migration
@@ -23,7 +24,7 @@ php bin/console doctrine:migrations:migrate
 php -S localhost:8000 -t public/
 ```
 
-#### API Overview
+#### API Platform
 ```
 http://localhost:8000/api
 ```
