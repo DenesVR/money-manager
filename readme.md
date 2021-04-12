@@ -28,3 +28,14 @@ php -S localhost:8000 -t public/
 ```
 http://localhost:8000/api
 ```
+
+#### Regex expression
+
+###### Email validation
+```
+/^([a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,7})$/
+```
+###### Bank account number validation
+```
+/BE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}|BE\d{14}/
+```
