@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
@@ -33,6 +34,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Regex(
+     *     pattern="/^([a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,7})$/",
+     *     message="Invalid email"
+     * )
      */
     private $email;
 
@@ -48,6 +53,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=25)
+     * @Assert\Regex(
+     *     pattern="/BE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}|BE\d{14}/",
+     *     message="Invalid bank account number"
+     * )
      */
     private $rekeningnummer;
 
