@@ -9,7 +9,19 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={
+ *          "post"={
+ *               "access-control"="is_granted('IS_AUTHENTICATED_ANONYMOUSLY')"
+ *              },
+ *          "get"={
+ *               "access-control"="is_granted('IS_AUTHENTICATED_FULLY')"
+ *              },
+ *          "put"={
+ *               "access-control"="is_granted('IS_AUTHENTICATED_FULLY') and object == user"
+ *              }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
  */
@@ -43,6 +55,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=7, max=255)
      */
     private $wachtwoord;
 
