@@ -9,7 +9,13 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={
+ *          "get"={
+ *               "access-control"="is_granted('IS_AUTHENTICATED_FULLY')"
+ *              }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=GroepRepository::class)
  */
 class Groep
